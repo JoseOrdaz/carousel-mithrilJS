@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://components.digitalvalue.es/lib/mithril.min.js"></script>
+
+    <script src="https://components.digitalvalue.es/lib/jquery-3.4.1.min.js"></script>
+    <script src="https://components.digitalvalue.es/lib/semantic.min.js"></script>
+
+    <script src="https://components.digitalvalue.es/lib/mithril.min.js"></script>
+    <script src="https://components.digitalvalue.es/dv-components-m/cookie.min.js"></script>
+    <script src="https://components.digitalvalue.es/dv-components-m/contents-editor.min.js"></script>
+    <script src="https://components.digitalvalue.es//lib/semantic.min.js"></script>
+
+    <script src="
+    https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js
+    "></script>
+    <link
+      href="
+    https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css
+    "
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css"
+      integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <style>
+    .slick-carousel {
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .slick-carousel img {
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .slick-next::before,
+    .slick-prev::before {
+      color: #fff;
+      font-size: 2em;
+    }
+
+    .slick-prev {
+      left: 3em;
+      z-index: 999;
+      font-size: inherit;
+      width: 40px;
+      height: 40px;
+    }
+
+    .slick-next {
+      right: 3em;
+      z-index: 999;
+      font-size: inherit;
+      width: 40px;
+      height: 40px;
+    }
+
+    ul.slick-dots {
+      bottom: 1em;
+    }
+
+    .slick-dots li button:before {
+      color: #fff;
+    }
+
+    .slick-dots li.slick-active button:before {
+      color: #fff;
+    }
+  </style>
+
+  <body>
+    <div id="carrousel-container"></div>
+
+    <script>
+      function Slider() {
+      
+  
+        return {
+        
+
+          oncreate: () => {
+            // Inicializa Slick después de que los elementos del carrousel se hayan renderizado
+            $(".slick-carousel").slick({
+              // Configuración de Slick, aquí puedes personalizar el comportamiento del carrousel
+              infinite: true,
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              autoplay: true,
+              autoplaySpeed: 2000,
+              arrows: true,
+              dots: true,
+              lazyLoad: "ondemand",
+
+              // Otros ajustes de configuración de Slick
+            });
+          },
+          view: ({ attrs }) => {
+   
+            return m("div", { class: "slick-carousel" }, [
+                
+              m("div", { class: "carousel-item" }, [
+                  m("img", {
+                      src: "https://cdn.digitalvalue.es/cosital/assets/618524f1db7314cd089f31f1",
+                      alt: "Imagen 1",
+                  }),
+              ]),
+              m("div", { class: "carousel-item" }, [
+                  m("img", {
+                      src: "https://cdn.digitalvalue.es/cosital/assets/619b8da4044a7df808844d1b",
+                      alt: "Imagen 2",
+                  }),
+              ]),
+          
+            ]);
+          },
+        };
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        m.mount(document.getElementById("carrousel-container"), {
+          view: () => {
+            return m(Slider, {});
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
